@@ -13,7 +13,7 @@ var main = args => {
   let ow = openwhisk();
   let name = 'numberRange'
   let blocking = true
-  let params = {"from": 1, "to": 20};
+  let params = {"from": args.from, "to": args.to};
 
   return new Promise((resolve, reject) => {
       ow.actions.invoke({actionName: name, blocking: blocking, params: params}).then(result => {
